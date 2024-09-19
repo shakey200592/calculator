@@ -187,12 +187,3 @@ inputElements.forEach((input) => {
     }
   });
 });
-
-clearElement.addEventListener("click", () => {
-  currentInput = "";
-  leftOperator = "";
-  rightOperator = "";
-  operand = "";
-  result = "";
-  updateDisplay("");
-});
