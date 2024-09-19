@@ -1,6 +1,22 @@
 let calculator = {
-  firstNum: 1,
-  secondNum: 2,
+  _firstNum: 0,
+  _secondNum: 0,
+
+  get firstNum() {
+    return this._firstNum;
+  },
+
+  get secondNum() {
+    return this._secondNum;
+  },
+
+  set firstNum(num) {
+    this._firstNum = num;
+  },
+
+  set secondNum(num) {
+    this._secondNum = num;
+  },
 
   add(num1, num2) {
     return num1 + num2;
@@ -16,6 +32,10 @@ let calculator = {
 
   divide(num1, num2) {
     return num1 / num2;
+  },
+
+  operate(num1, num2, operand) {
+    return operand(num1, num2);
   },
 };
 

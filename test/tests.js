@@ -163,4 +163,40 @@ describe("Calculator", function () {
       assert.strictEqual(calculator.divide(firstNum, secondNum), Infinity);
     });
   });
+  describe(".operate()", function () {
+    it("returns 2 when passed (1,2, .add())", function () {
+      assert.strictEqual(
+        firstNum + secondNum,
+        calculator.operate(firstNum, secondNum, calculator.add)
+      );
+    });
+    it("returns 2 when passed (1,2, .subtract())", function () {
+      assert.strictEqual(
+        firstNum - secondNum,
+        calculator.operate(firstNum, secondNum, calculator.subtract)
+      );
+    });
+    it("returns 2 when passed (1,2, .multiply())", function () {
+      assert.strictEqual(
+        firstNum * secondNum,
+        calculator.operate(firstNum, secondNum, calculator.multiply)
+      );
+    });
+    it("returns 0.5 when passed (1,2, .divide())", function () {
+      assert.strictEqual(
+        firstNum / secondNum,
+        calculator.operate(firstNum, secondNum, calculator.divide)
+      );
+    });
+  });
+  describe("setter tests", function () {
+    let firstNum = 10;
+    let secondNum = 20;
+    it("firstNum equals 10", function () {
+      assert.strictEqual(firstNum, (calculator.firstNum = 10));
+    });
+    it("firstNum equals 20", function () {
+      assert.strictEqual(secondNum, (calculator.firstNum = 20));
+    });
+  });
 });
