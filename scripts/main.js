@@ -1,7 +1,8 @@
 const calculator = {
   // Internal properties to store the default values for the numbers
-  _firstNum: 0,
-  _secondNum: 0,
+  _firstNum: "",
+  _secondNum: "",
+  memory: "",
 
   /**
    * Getter for the first number.
@@ -95,11 +96,103 @@ const calculator = {
 };
 
 const calculatorInputElement = document.querySelector("#input");
-const inputs = document.querySelector(".inputs");
-let currentInput;
+const inputElements = document.querySelectorAll(".inputs");
+const operandElements = document.querySelectorAll(".operand");
+const equalsElement = document.querySelector(".equals");
+const clearElement = document.querySelector(".clear");
 
-inputs.addEventListener("click", (event) => {
-  currentInput = event.target.innerText;
-  calculatorInputElement.value += currentInput;
-  console.log(calculatorInputElement.value);
+let currentInput = "";
+let leftOperator = "";
+let rightOperator = "";
+let operand = "";
+let result = "";
+
+function updateDisplay(value) {
+  calculatorInputElement.value = value;
+}
+
+function calculate() {
+  if (leftOperator && rightOperator) {
+    switch (operand) {
+      case "+":
+        result = calculator.operate(
+          parseFloat(leftOperator),
+          parseFloat(rightOperator),
+          calculator.add
+        );
+        break;
+      case "-":
+        result = calculator.operate(
+          parseFloat(leftOperator),
+          parseFloat(rightOperator),
+          calculator.subtract
+        );
+        break;
+      case "X":
+        result = calculator.operate(
+          parseFloat(leftOperator),
+          parseFloat(rightOperator),
+          calculator.multiply
+        );
+        break;
+      case "/":
+        result = calculator.operate(
+          parseFloat(leftOperator),
+          parseFloat(rightOperator),
+          calculator.divide
+        );
+        break;
+    }
+    calculator.memory = result;
+    updateDisplay(result);
+    leftOperator = result.toString();
+    rightOperator = "";
+    operand = "";
+    currentInput = "";
+  }
+}
+
+inputElements.forEach((input) => {
+  input.addEventListener("click", () => {
+    const inputText = input.innerText;
+
+    if (
+      input.classList.contains("operand") &&
+      inputText !== "=" &&
+      inputText !== "AC"
+    ) {
+      if (leftOperator === "") {
+        leftOperator = currentInput;
+      } else if (rightOperator === "") {
+        rightOperator = currentInput;
+        calculate();
+      }
+      operand = inputText.trim();
+      currentInput = "";
+    } else if (inputText === "=") {
+      if (leftOperator !== "" && currentInput !== "") {
+        rightOperator = currentInput;
+        calculate();
+      }
+    } else if (inputText === "AC") {
+      currentInput = "";
+      leftOperator = "";
+      rightOperator = "";
+      operand = "";
+      result = "";
+      updateDisplay("");
+    } else {
+      currentInput += inputText;
+      updateDisplay(currentInput);
+    }
+  });
+});
+
+clearElement.addEventListener("click", () => {
+  currentInput = "";
+  leftOperator = "";
+  rightOperator = "";
+  operand = "";
+  result = "";
+  updateDisplay("");
 });
