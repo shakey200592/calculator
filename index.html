@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles.css" rel="stylesheet" />
     <title>Online Calculator</title>
   </head>
   <body>
@@ -12,71 +13,87 @@
       </div>
 
       <div class="buttons">
-        <button type="button" class="inputs number" name="one" id="one">
-          1
-        </button>
-        <button type="button" class="inputs number" name="two" id="two">
-          2
-        </button>
-        <button type="button" class="inputs number" name="three" id="three">
-          3
-        </button>
-        <button type="button" class="inputs number" name="four" id="four">
-          4
-        </button>
-        <button type="button" class="inputs number" name="five" id="five">
-          5
-        </button>
-        <button type="button" class="inputs number" name="six" id="six">
-          6
-        </button>
-        <button type="button" class="inputs number" name="seven" id="seven">
-          7
-        </button>
-        <button type="button" class="inputs number" name="eight" id="eight">
-          8
-        </button>
-        <button type="button" class="inputs number" name="nine" id="nine">
-          9
-        </button>
-        <button type="button" class="inputs operand" name="add" id="add">
-          +
-        </button>
-        <button
-          type="button"
-          class="inputs operand"
-          name="subtract"
-          id="subtract"
-        >
-          -
-        </button>
-        <button
-          type="button"
-          class="inputs operand"
-          name="multiply"
-          id="multiply"
-        >
-          X
-        </button>
-        <button type="button" class="inputs operand" name="divide" id="divide">
-          /
-        </button>
-        <button
-          type="button"
-          class="inputs operand equals"
-          name="equals"
-          id="equals"
-        >
-          =
-        </button>
-        <button
-          type="button"
-          class="inputs operand clear"
-          name="clear"
-          id="clear"
-        >
-          AC
-        </button>
+        <div>
+          <button type="button" class="inputs number" name="one" id="one">
+            0
+          </button>
+          <button type="button" class="inputs number" name="three" id="three">
+            3
+          </button>
+          <button type="button" class="inputs number" name="six" id="six">
+            6
+          </button>
+          <button type="button" class="inputs number" name="eight" id="eight">
+            8
+          </button>
+        </div>
+        <div>
+          <button type="button" class="inputs number" name="one" id="one">
+            1
+          </button>
+          <button type="button" class="inputs number" name="four" id="four">
+            4
+          </button>
+          <button type="button" class="inputs number" name="seven" id="seven">
+            7
+          </button>
+          <button type="button" class="inputs number" name="nine" id="nine">
+            9
+          </button>
+        </div>
+        <div>
+          <button type="button" class="inputs number" name="two" id="two">
+            2
+          </button>
+          <button type="button" class="inputs number" name="five" id="five">
+            5
+          </button>
+          <button type="button" class="inputs operand" name="add" id="add">
+            +
+          </button>
+          <button
+            type="button"
+            class="inputs operand"
+            name="subtract"
+            id="subtract"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <button
+            type="button"
+            class="inputs operand"
+            name="multiply"
+            id="multiply"
+          >
+            X
+          </button>
+          <button
+            type="button"
+            class="inputs operand"
+            name="divide"
+            id="divide"
+          >
+            /
+          </button>
+          <button
+            type="button"
+            class="inputs operand equals"
+            name="equals"
+            id="equals"
+          >
+            =
+          </button>
+          <button
+            type="button"
+            class="inputs operand clear"
+            name="clear"
+            id="clear"
+          >
+            AC
+          </button>
+        </div>
       </div>
     </div>
     <script src="./scripts/main.js"></script>
