@@ -12,18 +12,27 @@ describe("Calculator", function () {
   });
 
   describe(".firstNum", function () {
+    /**
+     * Tests that `firstNum` is a valid number.
+     */
     it("first input is a valid number", function () {
       assert.strictEqual(typeof firstNum, typeof calculator.firstNum);
     });
   });
 
   describe(".secondNum", function () {
+    /**
+     * Tests that `secondNum` is a valid number.
+     */
     it("second input is a valid number", function () {
       assert.strictEqual(typeof secondNum, typeof calculator.secondNum);
     });
   });
 
   describe(".add()", function () {
+    /**
+     * Tests that `.add()` returns a number.
+     */
     it("returns a number", function () {
       assert.strictEqual(
         typeof (firstNum + secondNum),
@@ -31,6 +40,9 @@ describe("Calculator", function () {
       );
     });
 
+    /**
+     * Tests that `.add()` returns the correct sum of two numbers (1, 2).
+     */
     it("returns the sum of two numbers (1, 2)", function () {
       assert.strictEqual(
         firstNum + secondNum,
@@ -38,6 +50,9 @@ describe("Calculator", function () {
       );
     });
 
+    /**
+     * Tests that `.add()` returns the correct sum of two large numbers (50, 50).
+     */
     it("returns the sum of two large numbers (50, 50)", function () {
       firstNum = 50;
       secondNum = 50;
@@ -47,6 +62,9 @@ describe("Calculator", function () {
       );
     });
 
+    /**
+     * Tests that `.add()` returns the correct sum of two decimal numbers (0.7, 0.2).
+     */
     it("returns the sum of two decimal numbers (0.7, 0.2)", function () {
       firstNum = 0.7;
       secondNum = 0.2;
@@ -58,6 +76,9 @@ describe("Calculator", function () {
   });
 
   describe(".subtract()", function () {
+    /**
+     * Tests that `.subtract()` returns a number.
+     */
     it("returns a number", function () {
       assert.strictEqual(
         typeof (firstNum - secondNum),
@@ -65,6 +86,9 @@ describe("Calculator", function () {
       );
     });
 
+    /**
+     * Tests that `.subtract()` returns the correct difference between two numbers (1, 2).
+     */
     it("returns the difference of two numbers (1, 2)", function () {
       assert.strictEqual(
         firstNum - secondNum,
@@ -72,6 +96,9 @@ describe("Calculator", function () {
       );
     });
 
+    /**
+     * Tests that `.subtract()` returns the correct difference between two equal numbers (50, 50).
+     */
     it("returns the difference of two equal numbers (50, 50)", function () {
       firstNum = 50;
       secondNum = 50;
@@ -81,6 +108,9 @@ describe("Calculator", function () {
       );
     });
 
+    /**
+     * Tests that `.subtract()` returns the correct difference between two decimal numbers (0.7, 0.2).
+     */
     it("returns the difference of two decimal numbers (0.7, 0.2)", function () {
       firstNum = 0.7;
       secondNum = 0.2;
@@ -92,6 +122,9 @@ describe("Calculator", function () {
   });
 
   describe(".multiply()", function () {
+    /**
+     * Tests that `.multiply()` returns a number.
+     */
     it("returns a number", function () {
       assert.strictEqual(
         typeof (firstNum * secondNum),
@@ -99,6 +132,9 @@ describe("Calculator", function () {
       );
     });
 
+    /**
+     * Tests that `.multiply()` returns the correct product of two numbers (1, 2).
+     */
     it("returns the product of two numbers (1, 2)", function () {
       assert.strictEqual(
         firstNum * secondNum,
@@ -106,6 +142,9 @@ describe("Calculator", function () {
       );
     });
 
+    /**
+     * Tests that `.multiply()` returns the correct product of two large numbers (50, 50).
+     */
     it("returns the product of two large numbers (50, 50)", function () {
       firstNum = 50;
       secondNum = 50;
@@ -115,6 +154,9 @@ describe("Calculator", function () {
       );
     });
 
+    /**
+     * Tests that `.multiply()` returns the correct product of two decimal numbers (0.7, 0.2).
+     */
     it("returns the product of two decimal numbers (0.7, 0.2)", function () {
       firstNum = 0.7;
       secondNum = 0.2;
@@ -126,6 +168,9 @@ describe("Calculator", function () {
   });
 
   describe(".divide()", function () {
+    /**
+     * Tests that `.divide()` returns a number.
+     */
     it("returns a number", function () {
       assert.strictEqual(
         typeof (firstNum / secondNum),
@@ -133,6 +178,9 @@ describe("Calculator", function () {
       );
     });
 
+    /**
+     * Tests that `.divide()` returns the correct quotient of two numbers (1, 2).
+     */
     it("returns the quotient of two numbers (1, 2)", function () {
       assert.strictEqual(
         firstNum / secondNum,
@@ -140,6 +188,9 @@ describe("Calculator", function () {
       );
     });
 
+    /**
+     * Tests that `.divide()` returns the correct quotient of two large numbers (50, 50).
+     */
     it("returns the quotient of two large numbers (50, 50)", function () {
       firstNum = 50;
       secondNum = 50;
@@ -149,6 +200,9 @@ describe("Calculator", function () {
       );
     });
 
+    /**
+     * Tests that `.divide()` returns the correct quotient of two decimal numbers (0.7, 0.2).
+     */
     it("returns the quotient of two decimal numbers (0.7, 0.2)", function () {
       firstNum = 0.7;
       secondNum = 0.2;
@@ -158,45 +212,78 @@ describe("Calculator", function () {
       );
     });
 
-    it("returns 'Infinity' when dividing by 0", function () {
+    /**
+     * Tests that `.divide()` returns an error message when dividing by zero.
+     */
+    it("returns 'Error: Division by zero' when dividing by 0", function () {
       secondNum = 0;
-      assert.strictEqual(calculator.divide(firstNum, secondNum), Infinity);
+      assert.strictEqual(
+        calculator.divide(firstNum, secondNum),
+        "Error: Division by zero"
+      );
     });
   });
+
   describe(".operate()", function () {
-    it("returns 2 when passed (1,2, .add())", function () {
+    /**
+     * Tests that `.operate()` correctly applies the `.add()` function.
+     */
+    it("returns 3 when passed (1, 2, .add())", function () {
       assert.strictEqual(
         firstNum + secondNum,
         calculator.operate(firstNum, secondNum, calculator.add)
       );
     });
-    it("returns 2 when passed (1,2, .subtract())", function () {
+
+    /**
+     * Tests that `.operate()` correctly applies the `.subtract()` function.
+     */
+    it("returns -1 when passed (1, 2, .subtract())", function () {
       assert.strictEqual(
         firstNum - secondNum,
         calculator.operate(firstNum, secondNum, calculator.subtract)
       );
     });
-    it("returns 2 when passed (1,2, .multiply())", function () {
+
+    /**
+     * Tests that `.operate()` correctly applies the `.multiply()` function.
+     */
+    it("returns 2 when passed (1, 2, .multiply())", function () {
       assert.strictEqual(
         firstNum * secondNum,
         calculator.operate(firstNum, secondNum, calculator.multiply)
       );
     });
-    it("returns 0.5 when passed (1,2, .divide())", function () {
+
+    /**
+     * Tests that `.operate()` correctly applies the `.divide()` function.
+     */
+    it("returns 0.5 when passed (1, 2, .divide())", function () {
       assert.strictEqual(
         firstNum / secondNum,
         calculator.operate(firstNum, secondNum, calculator.divide)
       );
     });
   });
+
   describe("setter tests", function () {
     let firstNum = 10;
     let secondNum = 20;
-    it("firstNum equals 10", function () {
-      assert.strictEqual(firstNum, (calculator.firstNum = 10));
+
+    /**
+     * Tests that the `firstNum` setter correctly assigns a value.
+     */
+    it("sets firstNum to 10", function () {
+      calculator.firstNum = 10;
+      assert.strictEqual(calculator.firstNum, 10);
     });
-    it("firstNum equals 20", function () {
-      assert.strictEqual(secondNum, (calculator.firstNum = 20));
+
+    /**
+     * Tests that the `firstNum` setter can be updated to a new value.
+     */
+    it("updates firstNum to 20", function () {
+      calculator.firstNum = 20;
+      assert.strictEqual(calculator.firstNum, 20);
     });
   });
 });
