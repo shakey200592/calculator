@@ -1,5 +1,5 @@
 import assert from "assert";
-import calculator from "./main.js";
+import calculator from "../main.js";
 
 describe("Calculator", function () {
   let firstNum;

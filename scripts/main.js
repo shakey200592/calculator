@@ -94,4 +94,12 @@ const calculator = {
   },
 };
 
-export default calculator;
+const calculatorInputElement = document.querySelector("#input");
+const inputs = document.querySelector(".inputs");
+let currentInput;
+
+inputs.addEventListener("click", (event) => {
+  currentInput = event.target.innerText;
+  calculatorInputElement.value += currentInput;
+  console.log(calculatorInputElement.value);
+});
