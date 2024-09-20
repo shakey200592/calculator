@@ -3,108 +3,176 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Link to the external CSS file -->
-    <link href="styles.css" rel="stylesheet" />
-    <title>Online Calculator</title>
+    <meta
+      name="description"
+      content="A fully accessible online calculator for basic arithmetic operations"
+    />
+    <title>Online calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="canonical" href="https://www.yourwebsite.com/calculator" />
   </head>
   <body>
-    <!-- Main container for the calculator -->
-    <div class="calculator-container">
-      <!-- Input display for the calculator -->
-      <div class="text-input">
-        <input type="text" name="input" id="input" />
-      </div>
-
-      <!-- Container for all calculator buttons -->
-      <div class="buttons">
-        <!-- First row of buttons -->
-        <div>
-          <button type="button" class="inputs number" name="zero" id="zero">
-            0
-          </button>
-          <button type="button" class="inputs number" name="three" id="three">
-            3
-          </button>
-          <button type="button" class="inputs number" name="six" id="six">
-            6
-          </button>
-          <button type="button" class="inputs number" name="eight" id="eight">
-            8
-          </button>
+    <header>
+      <h1>Online Calculator</h1>
+    </header>
+    <main>
+      <section class="calculator-container" aria-labelledby="calc-heading">
+        <h2 id="calc-heading" class="sr-only">Calculator</h2>
+        <div class="text-input">
+          <label for="input" id="input-label" class="sr-only"
+            >Calculator Display</label
+          >
+          <input
+            type="text"
+            id="input"
+            readonly
+            aria-live="polite"
+            aria-labelledby="input-label"
+          />
         </div>
-        <!-- Second row of buttons -->
-        <div>
-          <button type="button" class="inputs number" name="one" id="one">
-            1
-          </button>
-          <button type="button" class="inputs number" name="four" id="four">
-            4
-          </button>
-          <button type="button" class="inputs number" name="seven" id="seven">
+        <div class="buttons" role="group" aria-label="Calculator buttons">
+          <button
+            type="button"
+            class="inputs number"
+            data-value="7"
+            aria-label="7"
+          >
             7
           </button>
-          <button type="button" class="inputs number" name="nine" id="nine">
+          <button
+            type="button"
+            class="inputs number"
+            data-value="8"
+            aria-label="8"
+          >
+            8
+          </button>
+          <button
+            type="button"
+            class="inputs number"
+            data-value="9"
+            aria-label="9"
+          >
             9
           </button>
-        </div>
-        <!-- Third row of buttons -->
-        <div>
-          <button type="button" class="inputs number" name="two" id="two">
-            2
-          </button>
-          <button type="button" class="inputs number" name="five" id="five">
-            5
-          </button>
-          <button type="button" class="inputs operand" name="add" id="add">
-            +
-          </button>
           <button
             type="button"
             class="inputs operand"
-            name="subtract"
-            id="subtract"
-          >
-            -
-          </button>
-        </div>
-        <!-- Fourth row of buttons -->
-        <div>
-          <button
-            type="button"
-            class="inputs operand"
-            name="multiply"
-            id="multiply"
-          >
-            X
-          </button>
-          <button
-            type="button"
-            class="inputs operand"
-            name="divide"
-            id="divide"
+            data-value="/"
+            aria-label="Divide"
           >
             /
           </button>
           <button
             type="button"
-            class="inputs operand equals"
-            name="equals"
-            id="equals"
+            class="inputs number"
+            data-value="4"
+            aria-label="4"
+          >
+            4
+          </button>
+          <button
+            type="button"
+            class="inputs number"
+            data-value="5"
+            aria-label="5"
+          >
+            5
+          </button>
+          <button
+            type="button"
+            class="inputs number"
+            data-value="6"
+            aria-label="6"
+          >
+            6
+          </button>
+          <button
+            type="button"
+            class="inputs operand"
+            data-value="*"
+            aria-label="Multiply"
+          >
+            ×
+          </button>
+          <button
+            type="button"
+            class="inputs number"
+            data-value="1"
+            aria-label="1"
+          >
+            1
+          </button>
+          <button
+            type="button"
+            class="inputs number"
+            data-value="2"
+            aria-label="2"
+          >
+            2
+          </button>
+          <button
+            type="button"
+            class="inputs number"
+            data-value="3"
+            aria-label="3"
+          >
+            3
+          </button>
+          <button
+            type="button"
+            class="inputs operand"
+            data-value="-"
+            aria-label="Subtract"
+          >
+            -
+          </button>
+          <button
+            type="button"
+            class="inputs number"
+            data-value="0"
+            aria-label="0"
+          >
+            0
+          </button>
+          <button
+            type="button"
+            class="inputs number"
+            data-value="."
+            aria-label="Decimal point"
+          >
+            .
+          </button>
+          <button
+            type="button"
+            class="inputs equals"
+            data-value="="
+            aria-label="Equals"
           >
             =
           </button>
           <button
             type="button"
-            class="inputs operand clear"
-            name="clear"
-            id="clear"
+            class="inputs operand"
+            data-value="+"
+            aria-label="Add"
+          >
+            +
+          </button>
+          <button
+            type="button"
+            class="inputs clear"
+            data-value="AC"
+            aria-label="Clear All"
           >
             AC
           </button>
         </div>
-      </div>
-    </div>
-    <!-- Link to the external JavaScript file -->
-    <script src="./scripts/main.js"></script>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+    </footer>
+    <script src="scripts/main.js" defer></script>
   </body>
 </html>
